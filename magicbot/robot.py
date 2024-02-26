@@ -23,9 +23,9 @@ class MyRobot(magicbot.MagicRobot):
         self.drivetrain.arcade_drive(
             -self.joy.getLeftX() * 0.5, -self.joy.getLeftY() * 0.5
         )
-    SmartDashboard.putNumber("Joystick X value", self.joy.getLeftX())
-    SmartDashboard.putNumber("Joystick Y value", self.joy.getLeftY())
-    @feedback
+        SmartDashboard.putNumber("Joystick X value", self.joy.getLeftX())
+        SmartDashboard.putNumber("Joystick Y value", self.joy.getLeftY())
+    @property
     def get_angle(self):
         return self.navx.getAngle()
         
