@@ -2,6 +2,7 @@ import wpilib
 import wpilib.drive
 import phoenix5
 from magicbot import will_reset_to
+from magicbot import feedback
 
 class Drivetrain:
     frontleftmotor: phoenix5.WPI_TalonSRX
