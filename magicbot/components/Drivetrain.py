@@ -21,8 +21,8 @@ class Drivetrain:
             self.frontleftmotor, self.backleftmotor
         )
         self.robotDrive = wpilib.drive.DifferentialDrive(
-            self.frontleftmotor, self.frontrightmotor,self.
-            backleftmotor, self.backrightmotor)
+            self.leftmotor,self.rightmotor
+        )
     
     def arcade_drive(self, forward, turn):
         self.forward = forward
