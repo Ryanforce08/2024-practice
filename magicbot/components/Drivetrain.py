@@ -25,7 +25,7 @@ class Drivetrain:
             self.leftmotor,self.rightmotor
         )
     
-    def arcade_drive(self, forward, turn):
+    def arcadeDrive(self, forward, turn):
         self.forward = forward
         self.turn = turn
         
