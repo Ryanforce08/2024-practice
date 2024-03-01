@@ -11,7 +11,7 @@ from components.drive_control import DriveControl
 class MyRobot(magicbot.MagicRobot):
     drivetrain: Drivetrain
     drive_control: DriveControl
-
+    #creates objects as the def implies
     def createObjects(self):
         self.frontleftmotor = phoenix5.WPI_TalonSRX(15)
         self.frontrightmotor = phoenix5.WPI_TalonSRX(18)
@@ -23,7 +23,7 @@ class MyRobot(magicbot.MagicRobot):
     @property
     def get_angle(self):
         return self.navx.getAngle()
-
+    #everything under here does stuff when robot is running
     def teleopPeriodic(self):
         with self.consumeExceptions():
             self.drivetrain.arcadeDrive(
