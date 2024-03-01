@@ -4,6 +4,7 @@ import phoenix5
 from magicbot import will_reset_to
 from magicbot import feedback
 
+
 class Drivetrain:
     frontleftmotor: phoenix5.WPI_TalonSRX
     frontrightmotor: phoenix5.WPI_TalonSRX
@@ -13,7 +14,6 @@ class Drivetrain:
     forward = will_reset_to(0)
     turn = will_reset_to(0)
 
-    
     def setup(self):
         self.rightmotor = wpilib.MotorControllerGroup(
             self.frontrightmotor, self.backrightmotor
@@ -22,14 +22,12 @@ class Drivetrain:
             self.frontleftmotor, self.backleftmotor
         )
         self.robotDrive = wpilib.drive.DifferentialDrive(
-            self.leftmotor,self.rightmotor
+            self.leftmotor, self.rightmotor
         )
-    
+
     def arcadeDrive(self, forward, turn):
         self.forward = forward
         self.turn = turn
-        
+
     def execute(self):
         self.robotDrive.arcadeDrive(self.forward, self.turn)
-
-

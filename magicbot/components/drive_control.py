@@ -7,7 +7,6 @@ import navx
 from components.Drivetrain import Drivetrain
 
 
-
 class DriveControl(magicbot.StateMachine):
     # other components
     drivetrain: Drivetrain
@@ -59,4 +58,4 @@ class DriveControl(magicbot.StateMachine):
 
         measurement = self.navx.getAngle()
         output = self.turn_to_angle_controller.calculate(measurement)
-        self.drivetrain.arcadeDrive(0,(output, -0.3, 0.3))
+        self.drivetrain.arcadeDrive(0, (output, -0.3, 0.3))

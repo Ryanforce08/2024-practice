@@ -45,7 +45,7 @@ class Vision:
         if self.drought < self.filter_window:
             return self._id
         return None
-    
+
     def getLatency(self) -> float:
         if self.drought < self.filter_window:
             return self._latency
