@@ -19,6 +19,7 @@ class MyRobot(magicbot.MagicRobot):
         self.backrightmotor = phoenix5.WPI_TalonSRX(12)
         self.joy = wpilib.Joystick(0)
         self.navx = navx.AHRS.create_spi()
+        
 
     @property
     def get_angle(self):
@@ -27,8 +28,8 @@ class MyRobot(magicbot.MagicRobot):
     def teleopPeriodic(self):
         with self.consumeExceptions():
             self.drivetrain.arcadeDrive(
-                -self.joy.getY() * float(self.joy.getThrottle()),
                 -self.joy.getX() * float(self.joy.getThrottle()),
+                self.joy.getY() * float(self.joy.getThrottle()),
             )
         if self.joy.getTrigger():
             self.drive_control.turn_to_angle(180)
