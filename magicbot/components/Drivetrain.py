@@ -6,7 +6,7 @@ from magicbot import feedback
 
 
 class Drivetrain:
-    #Sets what the motors controllers are
+    # Sets what the motors controllers are
     frontleftmotor: phoenix5.WPI_TalonSRX
     frontrightmotor: phoenix5.WPI_TalonSRX
     backleftmotor: phoenix5.WPI_TalonSRX
@@ -14,7 +14,8 @@ class Drivetrain:
 
     forward = will_reset_to(0)
     turn = will_reset_to(0)
-    #sets up the motor groups
+
+    # sets up the motor groups
     def setup(self):
         self.rightmotor = wpilib.MotorControllerGroup(
             self.frontrightmotor, self.backrightmotor
@@ -25,7 +26,8 @@ class Drivetrain:
         self.robotDrive = wpilib.drive.DifferentialDrive(
             self.leftmotor, self.rightmotor
         )
-    #sets drive type 
+
+    # sets drive type
     def arcadeDrive(self, forward, turn):
         self.forward = forward
         self.turn = turn
