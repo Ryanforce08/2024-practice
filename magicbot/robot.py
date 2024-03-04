@@ -26,9 +26,10 @@ class MyRobot(magicbot.MagicRobot):
         return self.navx.getAngle()
     #everything under here does stuff when robot is running
     def teleopPeriodic(self):
-        self.speed +1
-        self.speed /2
-        self.speed +0.5
+        self.speed = float(self.joy.getThrottle())
+        self.speed += float(1)
+        self.speed / float(2)
+        self.speed +=float(0.5)
         self.drivetrain.arcadeDrive(
                 -self.joy.getX() * float(self.speed),
                 self.joy.getY() * float(self.speed),
