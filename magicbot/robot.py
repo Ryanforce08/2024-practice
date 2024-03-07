@@ -36,21 +36,26 @@ class MyRobot(magicbot.MagicRobot):
 
     # Teleop periodic function, called periodically during teleoperated mode
     def teleopPeriodic(self):
+
         # Adjusting speed based on joystick input
         self.speed = float(self.joy.getThrottle())
         self.speed += float(1)
         self.speed / float(2)
         self.speed += float(0.5)
-
-        # Drive the robot using arcade drive with adjusted speed
-        self.drivetrain.arcadeDrive(
-            -self.joy.getX() * float(self.speed),
-            self.joy.getY() * float(self.speed),
-        )
+        # Limit the speed to a maximum of 0.75
+        if self.speed > 0.75:
+            self.speed = 0.75
 
         # If trigger on joystick is pressed, command the robot to turn to a specific angle
         if self.joy.getTrigger():
             self.drive_control.turn_to_angle(180)
+
+        # Drive the robot using arcade drive with adjusted speed
+        else:
+            self.drivetrain.arcadeDrive(
+                -self.joy.getX() * float(self.speed),
+                self.joy.getY() * float(self.speed),
+            )
 
         # Update SmartDashboard with joystick values and current gyroscope angle
         SmartDashboard.putNumber("Joystick X value", self.joy.getY())
