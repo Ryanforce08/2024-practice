@@ -41,4 +41,7 @@ class DriveControl(magicbot.StateMachine):
 
         measurement = self.navx.getAngle()
         output = self.turn_to_angle_controller.calculate(measurement)
-        self.drivetrain.arcadeDrive(0, (output, -0.1, 0.1))
+        self.drivetrain.arcadeDrive(0, output)
+        if self.turn_to_angle_controller.atSetpoint():
+            self.done()
+
